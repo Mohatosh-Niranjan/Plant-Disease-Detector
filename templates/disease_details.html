@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ disease_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f7fa;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #48bb78;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 0;
+        }
+
+        .disease-info-container {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .disease-info-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: transform 0.2s ease;
+        }
+
+        .disease-info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .disease-info-content {
+            font-size: 1.1rem;
+        }
+
+        .disease-info-content h2 {
+            color: #2d3748;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #48bb78;
+            padding-bottom: 0.5rem;
+        }
+
+        .disease-info-content h3 {
+            color: #4a5568;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .disease-info-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .disease-info-content li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .disease-info-content li:before {
+            content: "•";
+            color: #48bb78;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #48bb78;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .back-button:hover {
+            background-color: #38a169;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .disease-info-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <i class="fas fa-leaf logo-icon"></i>
+                <h1>{{ disease_name.replace('___', ' - ') }}</h1>
+            </div>
+        </header>
+
+        <main>
+            <div class="disease-info-container">
+                <div class="disease-info-card">
+                    <div class="disease-info-content markdown-body">
+                        {{ disease_info | safe }}
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <a href="/" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Upload
+            </a>
+        </footer>
+    </div>
+</body>
+</html>
