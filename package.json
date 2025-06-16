@@ -2,7 +2,7 @@
   "name": "plant-disease-detector-mobile",
   "version": "1.0.0",
   "description": "Plant Disease Detector Mobile App",
-  "main": "index.js",
+  "main": "App.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
